@@ -1,0 +1,45 @@
+{% extends 'main/main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="box-element">
+	<a  class="btn btn-outline-dark" href="{% url 'store' %}">&#x2190; Continue Shopping</a>
+	<br>
+    <br>
+    <p>money left={{ cust.money }}</p>
+	<table class="table">
+		<tr>
+			<th><h5>Item: <strong>1</strong></h5></th>
+			<th><h5>Total:<strong> {{ tot }}</strong></h5></th>
+			<th>
+				<a  style="float:right; margin:5px;" class="btn btn-success" href="{% url 'order'  %}">Checkout</a>
+			</th>
+		</tr>
+	</table>
+</div>
+{% for item in items %}
+<div class="box-element">
+	<div class="cart-row">
+		<div style="flex:2"></div>
+		<div style="flex:2"><strong>title</strong></div>
+		<div style="flex:1"><strong>Price</strong></div>
+		<div style="flex:1"><strong>Quantity</strong></div>
+		<div style="flex:1"><strong>Total</strong></div>
+	</div>
+	
+	<div class="cart-row">
+		<div style="flex:2"><img class="row-image" src="{{ order.product.imageURL }}"></div>
+		<div style="flex:2"><p>{{ item.product.title }}</p></div>
+		<div style="flex:1"><p>{{ item.product.cost }}</p></div>
+		<div style="flex:1">
+			<a href="{% url 'quantity' item.product.id %}">Change Quantity</a>
+			<p>{{ item.quantity }}</p>
+		</div>
+		<div style="flex:1"><p>{{ item.total }}</p></div>
+		<div >
+			<a  class="btn btn-outline-dark" href="{% url 'del' item.product.id %}">&#x2190; Delete</a>	
+		</div>
+    </div>
+  
+{% endfor %}
+{% endblock content %}

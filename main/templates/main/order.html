@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>order</title>
+</head>
+
+<body>
+    <p>Write address</p>
+    <form method='POST' action=''>
+        {%csrf_token%}
+        <h5>address</h5>
+        <input type='text' name='adress' required >
+        <br>
+        <h5>City</h5>
+        <input type='text' name='city' required>
+        <br>
+        <h5>State</h5>
+        <input type='text' name='state' required>
+        <br>
+        <button type='submit' name='final'>Order</button>
+    </form>
+</body>
+
+</html>
+{% for item in order %}
+<p> This item is ordered - {{ item.product.title }}</p>
+<br>
+
+{% endfor %}
+

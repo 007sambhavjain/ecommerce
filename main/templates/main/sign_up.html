@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <p>This is the signup form</p>
+    <form method='POST' action='/sign_up/'>
+        {%csrf_token%}
+        <h5>Username</h5>
+        <input type='text' name='username' required>
+        <br>
+        <h5>Name</h5>
+        <input type='text' name='name' required>
+        <br>
+        <h5>Phone Number</h5>
+        <input type='text' name='phone' required>
+        <br>
+        <h5>customer or vendor </h5>
+        <input type='text' name='type' required>
+        <br>
+        <h5>Password</h5>
+        <input type='Password' name='password' required>
+        <br>
+        <button type='submit' name='SignUp'>Sign Up</button>
+    </form>
+</body>
+
+</html>

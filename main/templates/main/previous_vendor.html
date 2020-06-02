@@ -1,0 +1,12 @@
+{% for orders in order %}
+<p>title  </p>
+{{ orders.prod.title }}
+<br>
+<p>quantity  </p>
+{{ orders.quantity }}
+<br>
+<p>customer name  </p>
+{{ orders.customer.name }}
+<br>
+
+{% endfor %}

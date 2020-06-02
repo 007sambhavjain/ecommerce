@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <title>Create product</title>
+</head>
+
+<body>
+    <br>
+    <div class="form-inline my-2 my-lg-0">
+        <a href="{% url 'previous_vendor' %}"class="btn btn-warning"> product ordered</a>
+          
+        
+       </div>
+ 
+    <p>Create a product</p>
+    <p></p>
+    <form method='POST' action='/vendor/'>
+        {%csrf_token%}
+       {{ form }}
+       <input type="submit" name="create task">
+    </form>
+<h1>My registered products </h1>    
+{% for products in pro%}
+<div>
+    <h3>Product Name</h3>
+    <h3>{{ products.title }}</h3>
+    <h3>Product Cost</h3>
+    <h3>{{ products.cost}}</h3>
+    <a href="{% url 'product' products.id %}">update</a>
+    <a href="{% url 'delete' products.id %}">delete</a>
+    <br>
+</div>
+
+{% endfor %}
+</body>
+
+</html>
