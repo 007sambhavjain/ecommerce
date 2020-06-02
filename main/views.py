@@ -92,12 +92,12 @@ def sign_in(request):
         if Customer.objects.filter(user=user):
             login(request,user)
             cust=Customer.objects.get(user=user)
-            return HttpResponse('bacjslnqal'+str(cust.name))
+            return redirect('/store/')
         if Vendor.objects.filter(user=user):
             login(request,user)
             vend=Vendor.objects.get(user=user)
             
-            return HttpResponse('ainl'+str(vend.name))    
+            return redirect('/vendor/')  
 
 
 
@@ -347,3 +347,9 @@ def delet(request,pk):
                 return render(request,'main/dele.html',{'order':order})
             
 
+def sign_out(request):
+    if not request.user.is_authenticated:
+        return HttpResponse('User is not signed in, so he cannot sign out')
+
+    logout(request)
+    return HttpResponse('User has been logged out')

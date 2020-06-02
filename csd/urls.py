@@ -36,6 +36,7 @@ urlpatterns = [
     path('del/<str:pk>', views.delet,name='del'),
     path('accounts/', include('allauth.urls')),
     path('choice/', views.choice,name='choice'),
+    path('signout/',views.sign_out,name='signout'),
 
 ]
 
