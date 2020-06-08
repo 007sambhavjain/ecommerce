@@ -33,21 +33,21 @@ def choice(request):
 
 def sign_up(request):
     if request.method== 'GET':
-        message = Mail(
-            from_email='f20190255@pilani.bits-pilani.ac.in',
-            to_emails='f20190255@pilani.bits-pilani.ac.in',
-            subject='Sending with Twilio SendGrid is Fun',
-            html_content='<strong>and easy to do anywhere, even with Python</strong>')
-        try: 
-            sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
-            response = sg.send(message)
-            print(response.status_code)
-            print(response.body)
-            print(response.headers)
-        # except Exception as e:
-        #     print(e.message)    
-        except:
-            print("akn")
+#         message = Mail(
+#             from_email='f20190255@pilani.bits-pilani.ac.in',
+#             to_emails='f20190255@pilani.bits-pilani.ac.in',
+#             subject='Sending with Twilio SendGrid is Fun',
+#             html_content='<strong>and easy to do anywhere, even with Python</strong>')
+#         try: 
+#             sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+#             response = sg.send(message)
+#             print(response.status_code)
+#             print(response.body)
+#             print(response.headers)
+#         # except Exception as e:
+#         #     print(e.message)    
+#         except:
+#             print("akn")
         return render(request,'main/sign_up.html')
 
     if request.method=='POST':
